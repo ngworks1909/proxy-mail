@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextUtils-Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Prompt:wght@100&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:'Poppins','sans-serif';
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color:#4070f4;
+        }
+        .container{
+            position: relative;
+            max-width: 530px;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+        .container .form{
+            padding: 30px;
+        }
+        .container .form .title{
+            position: relative;
+            font-size: 27px;
+            font-weight: 600;
+        }
+        .form .title::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 40px;
+            background-color: #4070f4;
+            border-radius: 25px;
+        }
+
+        .form .input-field{
+            margin-top: 30px;
+            position: relative;
+            height: 50px;
+            width: 100%;
+        }
+        .form .input-field input,textarea,select{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            padding: 0 35px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            border-bottom: 2px solid #ccc;
+            border-top: 2px solid transparent;
+            transition: all 0.2 ease;
+
+        }
+        .input-field input:is(:focus, :valid){
+            border-bottom-color: #4070f4;
+        }
+        .input-field textarea:is(:focus, :valid){
+            border-bottom-color: #4070f4;
+        }
+        .input-field select:is(:focus, :valid){
+            border-bottom-color: #4070f4;
+        }
+        .input-field i{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 23px;
+            transition: all 0.2s ease;
+        }
+        .input-field input:is(:focus, :valid) ~ i{
+            color: #4070f4;
+        }
+        .input-field textarea:is(:focus, :valid) ~ i{
+            color: #4070f4;
+        }
+        .input-field select:is(:focus, :valid) ~ i{
+            color: #4070f4;
+        }
+        .input-field i.icon{
+            left: 0;
+        }
+        .input-field i.showHidePw{
+            right: 0;
+            cursor: pointer;
+        }
+        
+      
+
+        .form .text{
+            color: #333;
+            font-size: 14px;
+        }
+
+        .form a.text{
+            color: #4070f4;
+            text-decoration: none;
+        }
+       
+        .form a:hover{
+            text-decoration: underline;
+        }
+        .form .button{
+            margin-top: 30px;
+        }
+        .form .button input{
+            border: none;
+            background-color: #4070f4;
+            color: #fff;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            font-size: 17px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .button input:hover{
+            background-color: #265df2;
+        }
+        .form .login-signup{
+            margin-top: 30px;
+            text-align: center;
+        }
+        .uil-chat{
+            padding-bottom: 20px;
+        }
+
+        .form .showerror{
+            display: flex;
+            position: absolute;
+            margin-top: -20px;
+        }
+        .showerror .errortext{ 
+            font-size: 16px;
+        }
+        .showerror .errortext::before{
+            content: "";
+            padding-left: 5px;
+        }
+    </style>
+    
+</head>
+<body>
+    
+     <!-- <form action="#" method="post" th:action="@{/Email}" th:object="${sendemail}" >
+
+        <input type="email" name="destination" id="destination" th:field="*{destination}" placeholder="Enter email">
+        <input type="text" name="subject" id="subject" th:field="*{subject}" placeholder="Enter subject">
+         <textarea name="info" id="info" cols="30" rows="10" th:field="*{text}"></textarea>
+        <input type="text" name="language" id="language" th:field="*{language}" placeholder="Choose language">
+        <input type="submit" value="Submit">
+
+     </form> -->
+
+     <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Mail Service</span>
+                <form action="#" method="post" th:action="@{/Email}" th:object="${email}" >
+                    
+                    <div class="showerror">
+                        <h2 class="errortext" th:text="${msg}" th:style="${iserror} ? 'color:red' : 'color:rgb(21, 142, 76)' " on></h2>  
+                    </div>
+                    
+                    <div class="input-field">
+                        <input type="email" name="emailid" id="emailid" th:field="*{destination}" placeholder="Enter recipient email" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="text" name="subject" id="subject" th:field="*{subject}" placeholder="Enter subject" required>
+                        <i class="uil uil-subject icon"></i>
+                    </div>
+                    
+                    <div class="input-field">
+                        <!-- <input type="text" name="text" id="text-info" th:field="*{text}" placeholder="Enter text here" required> -->
+                        <textarea name="text" id="text-info" cols="30" rows="70" th:field="*{text}" placeholder="Enter text here" required></textarea>
+                        <i class="uil uil-chat icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <!-- <input type="text" name="language" id="language" th:field="*{language}" placeholder="Choose language" required> -->
+                        <select class="custom-select" id="inputGroupSelect01" name="language" th:field="*{language}">
+                            <option value="en" selected>English</option>
+                            <option value="bn">Bengali</option>
+                            <option value="gu">Gujarati</option>
+                            <option value="hi">Hindi</option>
+                            <option value="kn">Kannada</option>
+                            <option value="ks">Kashmiri</option>
+                            <option value="mr">Marathi</option>
+                            <option value="ml">Malayalam</option>
+                            <option value="or">Oriya</option>
+                            <option value="pa">Punjabi</option>
+                            <option value="ta">Tamil</option>
+                          </select>
+                        <i class="uil uil-language icon"></i>
+                        
+                    </div>
+                    <div class="input-field button" id="button">
+                        <input type="submit" value="Send Mail" class="form-submit" id="form-submit">
+                    </div>
+
+                </form>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+ 
+</body>
+</html>

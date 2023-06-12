@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextUtils-Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Prompt:wght@100&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:'Poppins','sans-serif';
+        }
+        body{
+            /* height: 100vh; */
+            background-color: #4070f4;
+            overflow-y: hidden;
+        }
+        .navbar{
+            margin-top: 10px;
+            background-color: transparent;
+        }
+        .container .nav-link{
+            color: white;
+        }
+        .userlog{
+            font-weight: 600;
+        }
+        .nav-link{
+            text-decoration: none;
+            position: relative;
+            font-family: 'Poppins';
+        }
+        .nav-link:after{
+            content: "";
+            position: absolute;
+            background-color: #fff;
+            height: 3px;
+            width: 0;
+            left: 0;
+            bottom: 0px;  
+            transition: all 0.2s ease-in-out;
+        }
+        .nav-link:hover:after{
+            width: 100%;
+        }
+        .bi{
+            height: 30px;
+            color: #fff;
+        }
+        .navbar-brand{
+            margin-top: 2px;
+        }
+
+        .container-1{
+            
+            max-width: 500px;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .text{
+            margin-top: 100px;
+            display: flex;
+            justify-content: center;
+           
+        }
+        .container-1 p{
+            padding: 30px 30px 0px 30px;
+            letter-spacing: 0.6px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.689);
+        }
+        .input-field{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .input-field .btn{
+            background-color: #4070f4;
+            transition: all 0.2s ease;
+        }
+        .input-field .btn:hover{
+            background-color: #265df2;
+        }
+        
+        
+        
+        
+    </style>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light " >
+    
+
+        <!-- Container wrapper -->
+        <div class="container">
+          <!-- Navbar brand -->
+          <a class="navbar-brand me-2" href="/">
+            <!-- <img
+              src="https://p7.hiclipart.com/preview/597/633/228/email-logo-computer-icons-email.jpg"
+              height="30px"
+              alt="MDB Logo"
+              loading="lazy"
+              style="margin-top: -1px; background-color: #fff;"
+            /> -->
+            <i class="bi bi-envelope-fill">PMAIL</i>
+          </a>
+      
+          <!-- Toggle button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarButtonsExample"
+            aria-controls="navbarButtonsExample"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars "></i>
+          </button>
+      
+          <!-- Collapsible wrapper -->
+          <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item me-4">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item me-4">
+                <a class="nav-link" href="#">Services</a>
+              </li>
+              <li class="nav-item me-4">
+                <a class="nav-link" href="#">Plans</a>
+              </li>
+              <li class="nav-item me-4">
+                <a class="nav-link" href="#">Services</a>
+              </li>
+              <li class="nav-item me-4">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+            </ul>
+            <!-- Left links -->
+      
+            <div class="d-flex align-items-center" style="margin-left:100px">
+              <a href="/Login" class="nav-link px-3 me-2 userlog" >
+                LOGIN
+              </a>
+              <a href="/Register" class="nav-link mx-3 me-3 userlog" >
+                SIGNUP
+              </a>
+              
+            </div>
+          </div>
+          <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+      
+
+      <div class="text">
+        <div class="container-1">
+            <div class="inside-text">
+                <p>PMail is a web-based application that allows users to send emails anonymously through a third-party server.
+                    The user's email address is not revealed to the recipient or any third-party, making it a useful tool for sending emails without revealing personal information.
+                    The application provides a proxy server to send emails, which can be located in different geographic locations to increase anonymity.</p>
+            </div>
+            <div class="input-field"> 
+                <a href="/Login" class="btn btn-primary">Get Started</a> 
+            </div>
+        </div>
+      </div>
+</body>
+</html>
